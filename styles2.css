@@ -1,0 +1,258 @@
+html {
+    height: 100%;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    scrollbar-width: thin;
+}
+
+body {
+    height: 100%;
+    background-color: #121212;
+    margin: 0;
+    user-select: none;
+    position: relative;
+}
+
+.topRow {
+    display: flex;
+    height: 45px;
+    padding: 10px;
+    align-items: end;
+    text-align: center;
+}
+
+.topRow a {
+    border: none;
+    margin: 0;
+    text-align: center;
+}
+
+.github_pfp {
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-bottom:0px;
+}
+
+.topRowTabs {
+    height: 32px;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+    padding: 0px 15px 0px 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.topRowTabs:active {
+    transform: scale(0.95);
+}
+
+.topRowTabs p {
+    margin: 0;
+    color: white;
+    font-family:  "Poppins",sans-serif;
+    font-weight: 200;
+}
+
+.selectedTopRowTab {
+    height: 32px;
+    border-radius: 20px;
+    background-color: #1DB954;
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+    padding: 0px 15px 0px 15px;
+    transition: 0.2s ease-in-out;
+}
+
+
+.selectedTopRowTab:active {
+    transform: scale(0.95);
+}
+
+.selectedTopRowTab p {
+    margin: 0;
+    color: #121212;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+.midRow {
+    width: 90%;
+    margin: auto;
+}
+
+.midRowTabs {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.midRowTabsIndv {
+    height: 100%;
+    width: 48.5%;
+    background-color: #2a2a2a;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out ;
+    display: flex;
+    align-items: center;
+}
+
+.midRowTabsIndv:active {
+    transform: scale(0.95);
+}
+
+.midRowTabsIndv img {
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+}
+
+.midRowTabsIndv p {
+    font-weight: 600;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.projectsShowcase p {
+    font-weight: 600;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.projectsShowcaseTabs {
+    height: 180px;
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+}
+
+.projectsShowcaseTabIndv {
+    height: 160px;
+    min-width: 160px;
+    margin-right: 10px;
+    transition: 0.1s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: end;
+}
+
+.projectsShowcaseTabIndv:active {
+    transform: scale(0.95);
+}
+
+.projectsShowcaseTabIndv img {
+    height: 160px;
+    width: 160px;
+    border-radius: 5px;
+}
+
+.projectsShowcaseTabIndv p {
+    z-index: 10;
+    position: absolute;
+    margin: 0;
+    margin-left: 15px;
+    margin-bottom: 7.5px;
+    font-size: 20px;
+}
+
+.designChoiceTitle {
+    font-weight: 600;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.explanation {
+    font-weight: 200;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.musicPlayer {
+    height: 70px;
+    width: 100%;
+    background-image: linear-gradient(#2a2a2a00, #2a2a2a70);
+    position: fixed;
+    bottom: 0;
+}
+
+.player {
+    height: 50px;
+    width: 95%;
+    margin: auto;
+    background-color: #696065;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.albumCover {
+    height: 35px;
+    width: 35px;
+    border-radius: 3px;
+    margin-left: 7.5px;
+}
+
+.songInfo {
+    margin-left: 10px;
+    width: 100%;
+}
+
+.songInfo p {
+    margin: 0;
+}
+
+.songTitle {
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: calc(100% - 45px);
+}
+
+.songArtist {
+    font-weight: 300;
+    color: rgb(181, 181, 181);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 13px;
+}
+
+.likeSong {
+    height: 25px;
+    width: 25px;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 80px);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    width: 60px;
+    justify-content: space-between;
+}
