@@ -79,9 +79,9 @@ body {
 }
 
 .bottomSection {
-    height: 100px;
     width: calc(100% - 20px);
     margin: auto;
+    overflow-y: scroll;
 }
 
 .mainText {
