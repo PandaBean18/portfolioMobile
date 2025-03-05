@@ -82,6 +82,7 @@ body {
     width: calc(100% - 20px);
     margin: auto;
     overflow-y: scroll;
+    height: calc(100% - 70px);
 }
 
 .mainText {
