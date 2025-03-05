@@ -1,0 +1,93 @@
+html {
+    height: 100%;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    scrollbar-width: thin;
+}
+
+body {
+    height: 100%;
+    background-color: #121212;
+    margin: 0;
+    user-select: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.externalDiv {
+    height: 550px;
+    width: 80vw;
+    max-width: 300px;
+    background-image: linear-gradient(#154329, black);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.internalDiv {
+    height: 90%;
+    width: 80%;
+    background-color: #205f41;
+    border-radius: 15px;
+}
+
+.topSection {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    margin-top: 7.5px;
+}
+
+.imageContainer {
+    height: 100%;
+    width: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topSectionTextOuterContainer {
+    width: calc(100% - 60px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.techstackImage {
+    height: 40px;
+    width: 40px;
+    border-radius: 3px;
+}
+
+.titleText {
+    margin: 0;
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+
+.subtitleText {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+}
+
+.bottomSection {
+    height: 100px;
+    width: calc(100% - 20px);
+    margin: auto;
+}
+
+.mainText {
+    margin: 0;
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
