@@ -1,0 +1,151 @@
+html {
+    height: 100%;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    scrollbar-width: thin;
+}
+
+body {
+    height: 100%;
+    background-color: #121212;
+    margin: 0;
+    user-select: none;
+    position: relative;
+}
+
+.topSection {
+    background-image: linear-gradient(#06577e, #121212);
+    height: 40%;
+    width: 100%;
+}
+
+.projectsImage {
+    border-radius: 3px;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.projectsImageDiv {
+    height: 60%;
+    width: min-content;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.projectsImageText {
+    position: absolute;
+    font-weight: 600;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 20px;
+    bottom:-10px;
+    left: 10px;
+}
+
+.pageIntroDiv {
+    width: 95%;
+    margin: auto;
+}
+
+.pageIntro {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    margin-top: 35px;
+    font-size: 12px;
+}
+
+.madeBy {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.madeByText {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 12px;
+    margin-left: 7px;
+}
+
+.githubLink {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+}
+
+.githubPfp {
+    height: 18px;
+    border-radius: 50%;
+}
+
+.projectList {
+    width: 95%;
+    margin: auto;
+}
+
+.projectIndv {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-bottom: 5px;
+    transition: 0.1s ease-in-out;
+}
+
+.projectIndv:active {
+    transform: scale(0.98);
+}
+
+.projectImageContainer {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.projectDescContainer {
+    height: 50px;
+    width: calc(100% - 100px)
+}
+
+.projectMoreOptionsContainer {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.projectImageContainer img {
+    height: 80%;
+}
+
+.projectMoreOptionsContainer img {
+    height: 50%;
+}
+
+.projectName {
+    margin: 0;
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    margin-left:10px;
+}
+
+.projectStack {
+    margin: 0;
+    font-weight: 300;
+    color: #b2b2b2;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    margin-left:10px;
+}

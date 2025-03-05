@@ -1,0 +1,142 @@
+html {
+    height: 100%;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    scrollbar-width: thin;
+}
+
+body {
+    height: 100%;
+    background-color: #121212;
+    margin: 0;
+    user-select: none;
+    position: relative;
+}
+
+.topSection {
+    background-image: linear-gradient(#2f3569, #121212);
+    height: calc(25% - 20px);
+    width: 100%;
+    padding-top: 20px;
+}
+
+.topContainer {
+    width: 95%;
+    height: 120px;
+    margin: auto;
+    display: flex;
+}
+
+.imageContainer {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.expImage {
+    height: 80%;
+    border-radius: 3px;
+}
+
+.internshipDetails {
+    height: 100%;
+    width: max-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.internshipDetailsText {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.internshipRole {
+    margin: 0;
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+
+.internshipCompany {
+    margin: 0;
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.internshipDurationDiv {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+}
+
+.internshipDurationText {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 12px;
+    margin-left: 12px;
+}
+
+.internshipPlaceText {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 12px;
+}
+
+.dotImage {
+    height: 12px;
+}
+
+.bottomSection {
+    width: 95%;
+    margin: auto;
+}
+
+.tabs {
+    display: flex;
+    margin-left: 12px;
+}
+
+.tabText {
+    margin: 0;
+    margin-right: 20px;
+    font-weight: 500;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    transition: 0.1s ease-in-out;
+}
+
+.selectedTab {
+    color: white;
+    font-weight: 600;
+    border-bottom: 2px solid #00FF00;
+    padding-bottom: 3px;
+}
+
+.yap {
+    margin-left: 12px;
+}
+
+.yapContent {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 14px;
+}

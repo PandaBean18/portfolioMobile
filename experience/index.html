@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>b34n</title>
+    <link rel="stylesheet" href="experience_styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script>
+        var currentTab = "about";
+
+        function changeCurrentTab(newTab) {
+            const contentAbout = "I interned at Auto Verdure last year as a software development intern for a period of two months from May till July. During this internship I worked heavily on the company website's backend architecture, helped in setting up the company's database on firebase, facilitating CRUD functionality by writing an API for the website, and also worked on improving the website UI a few times. I also worked a lot with platforms such as Google Cloud, which I used to set up Google's One Tap sign in, Cloudinary, which I used to host images of the website to try and make use of their AI features, Resend, which was used to automate email sending, and Razorpay, who's payment gateway was employeed into the website. I also worked with frontend libraries such as react and three.js. Since the website was built using Next.js, I worked very closely with that as well, and understood a lot about writing APIs in the framework. I was also part of an effort to improve website performance by employing client side and server side caching, which helped me gain valuable experience in working with systems like Redis and Redux. I was also responsible for implementing session token based authentication and authorization in the website."
+            const contentStack = "Languages: Javascript<br><br>Frameworks: Next.js<br><br>Libraries: react, Three.js<br><br>Tools and services: Google Cloud Platform, Firebase, Cloudinary, Resend, Redux, Redis<br><br>Deployment: Vercel";
+            const contentImpact = "Worked on the company's website using Next.js and react<br><br>Implemented server side caching using redis leading to 66% improvement in loading speeds<br><br>Executed authentication with Google OAuth for user authentication<br><br>Developed APIs to allow addition of products by storing relevant information with Firebase and image handling with Cloudinary<br><br>Integrated a payment gateway into the website through Razorpay APIs<br><br>Explored automated email sending through Resend";
+            
+            const prevEle = document.getElementById(currentTab);
+            prevEle.classList.remove("selectedTab");
+
+            const newEle = document.getElementById(newTab);
+            newEle.classList.add("selectedTab");
+            currentTab = newTab;
+
+            const yapEle = document.getElementsByClassName("yapContent")[0];
+
+            if (newTab === "about") {
+                yapEle.innerHTML = contentAbout;
+            } else if (newTab === "techStack") {
+                yapEle.innerHTML = contentStack;
+            } else if (newTab === "impact") {
+                yapEle.innerHTML = contentImpact;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="topSection">
+        <div class="topContainer">
+            <div class="imageContainer">
+                <img src="./icons/experience.jpg" alt="experience" class="expImage">
+            </div>
+            <div class="internshipDetails">
+                <div class="internshipDetailsText">
+                    <div>
+                        <p class="internshipRole">Software Development Intern</p>
+                        <p class="internshipCompany">Auto Verdure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="internshipDurationDiv">
+            <p class="internshipDurationText">May 2024</p>
+            <img src="./icons/dot.svg" alt="dot" class="dotImage">
+            <p class="internshipPlaceText">New Delhi</p>
+        </div>
+    </div>
+    <div class="bottomSection">
+        <div class="tabs">
+            <p class="tabText" id="techStack" onclick="changeCurrentTab('techStack')">Tech Stack</p>
+            <p class="tabText selectedTab" id="about" onclick="changeCurrentTab('about')">About</p>
+            <p class="tabText" id="impact" onclick="changeCurrentTab('impact')">Impact</p>
+        </div>
+        <br>
+        <div class="yap">
+            <p class="yapContent">I interned at Auto Verdure last year as a software development intern for a period of two months from May till July. During this internship I worked heavily on the company website's backend architecture, helped in setting up the company's database on firebase, facilitating CRUD functionality by writing an API for the website, and also worked on improving the website UI a few times. I also worked a lot with platforms such as Google Cloud, which I used to set up Google's One Tap sign in, Cloudinary, which I used to host images of the website to try and make use of their AI features, Resend, which was used to automate email sending, and Razorpay, who's payment gateway was employeed into the website. I also worked with frontend libraries such as react and three.js. Since the website was built using Next.js, I worked very closely with that as well, and understood a lot about writing APIs in the framework. I was also part of an effort to improve website performance by employing client side and server side caching, which helped me gain valuable experience in working with systems like Redis and Redux. I was also responsible for implementing session token based authentication and authorization in the website.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+html {
+    height: 100%;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    scrollbar-width: thin;
+}
+
+body {
+    height: 100%;
+    background-color: #121212;
+    margin: 0;
+    user-select: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.header {
+    background-color: #2a2a2a;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header p {
+    font-weight: 600;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 20px;
+}
+
+.mainContainer {
+    width: 80vw;
+    height: 80vw;
+    max-width: 500px;
+    max-height: 500px;
+    margin: auto;
+    position: relative;
+}
+
+.firstBgImage {
+    width: 100%;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10;
+    transition: 0.1s ease-in-out;
+}
+
+.secondBgImage {
+    width: 100%;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 5;
+    transition: 0.1s ease-in-out;
+}
+
+.imageCurrentlyMinimized {
+    width: 20%;
+    margin-top: 5%;
+    margin-left: 5%;
+    z-index: 20;
+    transition: 0.1s ease-in-out;
+}
+
+.infoContainer {
+    z-index: 15;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.topSection {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.511), rgba(0, 0, 0, 0));
+    width: 100%;
+    margin: auto;
+    height: 30%;
+    display: flex;
+}
+
+.bottomSection {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.511));
+    width: 100%;
+    margin: auto;
+    height: 30%;
+    display: flex;
+}
+
+.midSection {
+    width: 100%;
+    margin: auto;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+}
+
+.infoImageContainer {
+    height: 100%;
+    width: calc(80vw * 0.3);
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.infoTitleContainer {
+    height: 100%;
+    width: calc(80vw * 0.7);
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.infoImage {
+    width: calc(80vw * 0.2);
+    max-width: 100px;
+    border-radius: 5px;
+}
+
+.infoTitleDesc {
+    display: flex;
+    align-items: center;
+}
+
+.dotImage {
+    height: 12px;
+}
+
+.collegeName {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+
+.collegeState {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+
+.degree {
+    margin: 0;
+    font-weight: 500;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+}
+
+.bottomTextDiv {
+    width: 90%;
+    max-width: 450px;
+    margin: auto;
+}
+
+.bottomText {
+    margin: 0;
+    font-weight: 400;
+    color: #989898;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+
+.arrowDiv {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.arrowSection {
+    height: 25px;
+    width: 25px;
+    border-radius: 12.5px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    background-color: rgba(0, 0, 0, 0.58);
+}

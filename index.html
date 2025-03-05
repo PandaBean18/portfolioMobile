@@ -24,6 +24,12 @@
             newEle.classList.remove("topRowTabs");
 
             currentTab = s;
+
+            if (s === 'exp') {
+                window.location.href = "experience.html";
+            } else if (s === "projects") {
+                window.location.href = "projects.html";
+            }
         }
 
         function redirectTo(s) {
@@ -49,21 +55,7 @@
     </script>
 </head>
 <body>
-    <div class="musicPlayer">
-        <div class="player">
-            <div class="song">
-                <img src="./icons/album_cover.png" alt="albumCover" class="albumCover">
-                <div class="songInfo">
-                    <p class="songTitle">Nightcrawler (Feat. Swae Lee & Chief Keef)</p>
-                    <p class="songArtist">Travis Scott</p>
-                </div>
-            </div>
-            <div class="controls">
-                <img src="./icons/checkmark.svg" class="likeSong" alt="like">
-                <img src="./icons/play.svg" class="likeSong" alt="playpause" id="playButton" onclick="updatePlayPause()">
-            </div>
-        </div>
-    </div>
+
     <div class="topRow">
         <img src="./icons/github_pfp.jpg" alt="pfp" class="github_pfp" onclick="window.open('https:\/\/www.github.com/PandaBean18')">
         <div class="selectedTopRowTab" id="all" onclick="changeTab('all')">
@@ -78,21 +70,21 @@
     </div>
     <div class="midRow">
         <div class="midRowTabs">
-            <div class="midRowTabsIndv" onclick="redirectTo('about')">
+            <div class="midRowTabsIndv" onclick="redirectTo('about.html')">
                 <img src="./icons/about_me.jpg" alt="aboutMe">
                 <p>About Me</p>
             </div>
-            <div class="midRowTabsIndv">
+            <div class="midRowTabsIndv" onclick="redirectTo('projects.html')">
                 <img src="./icons/projects.jpg" alt="projects">
                 <p>Projects</p>
             </div>
         </div>
         <div class="midRowTabs">
-            <div class="midRowTabsIndv">
+            <div class="midRowTabsIndv" onclick="redirectTo('experience.html')">
                 <img src="./icons/experience.jpg" alt="exp">
                 <p>Experience</p>
             </div>
-            <div class="midRowTabsIndv">
+            <div class="midRowTabsIndv" onclick="redirectTo('education.html')">
                 <img src="./icons/education.jpg" alt="education">
                 <p>Education</p>
             </div>
@@ -102,13 +94,13 @@
                 <img src="./icons/techstack.jpg" alt="techstack">
                 <p>Tech Stack</p>
             </div>
-            <div class="midRowTabsIndv">
+            <div class="midRowTabsIndv" onclick="redirectTo('https:\/\/www.github.com/PandaBean18')">
                 <img src="./icons/github_pfp.jpg" alt="github">
                 <p>Github</p>
             </div>
         </div>
         <div class="midRowTabs">
-            <div class="midRowTabsIndv">
+            <div class="midRowTabsIndv" onclick="redirectTo('mailto:raghapb34n@gmail.com')">
                 <img src="./icons/contact.png" alt="contact">
                 <p>Contact Me</p>
             </div>
@@ -143,6 +135,7 @@
             <p class="designChoiceTitle">Why This Design?</p>
             <p class="explanation">Music is a very integral part of my development cycle. If I am working, music will most likely be playing. The design of this portfolio is very heavily inspired by spotify simply because I think their app is very cool and important to me. Moreover, they are really amazing at designing.</p>
         </div>
+        <br>
     </div>
 </body>
 </html>
