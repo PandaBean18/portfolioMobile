@@ -1,0 +1,229 @@
+html {
+    height: 100%;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    scrollbar-width: thin;
+}
+body {
+    background-image: url("./icons/pokemonbg.jpg");
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 5px;
+}
+
+.terminalWindow {
+    height: 600px;
+    width: 1175px;
+    background-color: #2E1A47;
+    border-radius: 5px;    
+    border: solid 1.5px #3A3A3A;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.5), 
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.terminalWindowHeader {
+    height: 35px;
+    width: calc(100%-15px);
+    background-color: #4A4A4A;
+    border-radius:5px 5px 0px 0px ;
+    display: flex;
+    justify-content: space-between;
+    align-items:end;  
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+
+.terminalWindowTabsRow {
+    height: 80%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+}
+
+.terminalWindowOperationsRow {
+    height: 80%;
+    width: 8.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.terminalWindowCurrentTab {
+    height: 100%;
+    width: 240px;
+    background-color: #2E1A47;
+    border-radius: 3px 3px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.terminalWindowCurrentTab p {
+    margin: 0;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    margin-left: 10px;
+    font-size: 17px;
+    user-select: none;
+}
+
+.terminalWindowCurrentTab img {
+    height: 14px;
+    width: 14px;
+    padding: 3px;
+    margin-right: 10px;
+    background-color: transparent;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.terminalWindowCurrentTab img:hover {
+    background-color: rgba(128, 128, 128, 0.377);
+}
+
+.newTabImage {
+    height: 17px;
+    width: 17px;
+    padding: 3px;
+    margin-left: 3px;
+    background-color: transparent;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.newTabImage:hover {
+    background-color: rgba(128, 128, 128, 0.377);
+}
+
+.operationsImage {
+    padding: 5px;
+    height: 12px;
+    user-select: none;
+}
+
+#sqImage {
+    margin-left: 1px;
+}
+
+#sqImage:hover {
+    background-color: rgba(128, 128, 128, 0.377);
+}
+
+#crossImage:hover {
+    background-color: rgba(128, 128, 128, 0.377);
+}
+
+#minimizeImage:hover {
+    background-color: rgba(128, 128, 128, 0.377)
+}
+
+.terminalWindowMainArea {
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    margin-top: 5px;
+    height: 560px;
+    overflow-y: scroll;
+}
+
+.currentTypingArea {
+    display: flex;
+}
+
+.lineStartText {
+    font-family: 'Ubuntu Mono', monospace;
+    color: #00FF00;
+    font-size: 18px;
+    margin: 0;
+}
+
+.path {
+    font-family: 'Ubuntu Mono', monospace;
+    color: #0000FF;
+    font-size: 18px;
+    margin: 0;
+}
+
+.dolla {
+    font-family: 'Ubuntu Mono', monospace;
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.currentInput {
+    margin-left: 4px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    background-color: transparent;
+    caret-color: white;
+    font-size: 18px;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    width: 100%;
+}
+
+.currentInput:active {
+    border:none;
+}
+
+.currentInput:focus {
+    outline: none;
+}
+
+.prevData {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 6px;
+    font-size: 18px;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.normalText {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 6px;
+    font-size: 18px;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.centeredText {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 6px;
+    font-size: 18px;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    text-align: center;
+}
+
+.spaceBetweenText {
+    display: flex;
+    justify-content: space-between;
+}
+
+.normalTextSmall {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 6px;
+    font-size: 14px;
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+}

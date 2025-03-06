@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>b34n</title>
+    <link rel="stylesheet" href="styles2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script>
+        var currentTab = "all";
+        var buttonStatus = "pause";
+        var audio = new Audio("song.mp3");
+                
+        function changeTab(s) {
+            const ele = document.getElementById(currentTab);
+
+            ele.classList.add("topRowTabs");
+            ele.classList.remove("selectedTopRowTab");
+
+            const newEle = document.getElementById(s);
+            newEle.classList.add("selectedTopRowTab");
+            newEle.classList.remove("topRowTabs");
+
+            currentTab = s;
+
+            if (s === 'exp') {
+                window.location.href = "experience";
+            } else if (s === "projects") {
+                window.location.href = "projects";
+            }
+        }
+
+        function redirectTo(s) {
+            if (buttonStatus === "play") {
+                audio.pause();
+            }
+            window.location.href = s;
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="topRow">
+        <img src="./icons/github_pfp.jpg" alt="pfp" class="github_pfp" onclick="window.open('https:\/\/www.github.com/PandaBean18')">
+        <div class="selectedTopRowTab" id="all" onclick="changeTab('all')">
+            <p>All</p>
+        </div>
+        <div class="topRowTabs" id="exp" onclick="changeTab('exp')">
+            <p>Experience</p>
+        </div>
+        <div class="topRowTabs" id="projects" onclick="changeTab('projects')">
+            <p>Projects</p>
+        </div>
+    </div>
+    <div class="midRow">
+        <div class="midRowTabs">
+            <div class="midRowTabsIndv" onclick="redirectTo('about')">
+                <img src="./icons/about_me.jpg" alt="aboutMe">
+                <p>About Me</p>
+            </div>
+            <div class="midRowTabsIndv" onclick="redirectTo('projects')">
+                <img src="./icons/projects.jpg" alt="projects">
+                <p>Projects</p>
+            </div>
+        </div>
+        <div class="midRowTabs">
+            <div class="midRowTabsIndv" onclick="redirectTo('experience')">
+                <img src="./icons/experience.jpg" alt="exp">
+                <p>Experience</p>
+            </div>
+            <div class="midRowTabsIndv" onclick="redirectTo('education')">
+                <img src="./icons/education.jpg" alt="education">
+                <p>Education</p>
+            </div>
+        </div>
+        <div class="midRowTabs">
+            <div class="midRowTabsIndv" onclick="redirectTo('techstack')">
+                <img src="./icons/techstack.jpg" alt="techstack">
+                <p>Tech Stack</p>
+            </div>
+            <div class="midRowTabsIndv" onclick="redirectTo('https:\/\/www.github.com/PandaBean18')">
+                <img src="./icons/github_pfp.jpg" alt="github">
+                <p>Github</p>
+            </div>
+        </div>
+        <div class="midRowTabs">
+            <div class="midRowTabsIndv" onclick="redirectTo('mailto:raghapb34n@gmail.com')">
+                <img src="./icons/contact.png" alt="contact">
+                <p>Contact Me</p>
+            </div>
+            <div class="midRowTabsIndv">
+                <img src="./icons/liked.png" alt="likedSongs">
+                <p>Liked Songs</p>
+            </div>
+        </div>
+        <div class="projectsShowcase">
+            <p>Uniquely Mine</p>
+            <div class="projectsShowcaseTabs">
+                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/mucli')">
+                    <p>muCLI</p>
+                    <img src="./icons/muCLI_showcase.jpg" alt="mucli">
+                </div>
+                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/beanvc')">
+                    <p>beanVC</p>
+                    <img src="./icons/bean_vc_showcase.png" alt="beanvc">
+                    
+                </div>
+                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/compass')">
+                    <p>Compass</p>
+                    <img src="./icons/compass_showcase.png" alt="compass">
+                </div>
+                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/password_manager')">
+                    <p>Password Manager</p>
+                    <img src="./icons/pw_manager_showcase.jpg" alt="pw_manager">
+                </div>
+            </div>
+        </div>
+        <div class="designChoice">
+            <p class="designChoiceTitle">Why This Design?</p>
+            <p class="explanation">Music is a very integral part of my development cycle. If I am working, music will most likely be playing. The design of this portfolio is very heavily inspired by spotify simply because I think their app is very cool and important to me. Moreover, they are really amazing at designing.</p>
+        </div>
+        <br>
+    </div>
+</body>
+</html>

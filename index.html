@@ -2,127 +2,516 @@
 <html>
 <head>
     <title>b34n</title>
-    <link rel="stylesheet" href="styles2.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script>
-        var currentTab = "all";
-        var buttonStatus = "pause";
-        var audio = new Audio("song.mp3");
-                
-        function changeTab(s) {
-            const ele = document.getElementById(currentTab);
+        function detectAspectRatio() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const aspectRatio = width / height;
 
-            ele.classList.add("topRowTabs");
-            ele.classList.remove("selectedTopRowTab");
-
-            const newEle = document.getElementById(s);
-            newEle.classList.add("selectedTopRowTab");
-            newEle.classList.remove("topRowTabs");
-
-            currentTab = s;
-
-            if (s === 'exp') {
-                window.location.href = "experience";
-            } else if (s === "projects") {
-                window.location.href = "projects";
+            if (aspectRatio < 1) {
+                window.location.href = "mobile";
             }
         }
 
-        function redirectTo(s) {
-            if (buttonStatus === "play") {
-                audio.pause();
-            }
-            window.location.href = s;
+        function addDiv(inputData) {
+            const newDiv = document.createElement('div');
+            const startText = document.createElement('p');
+            const path = document.createElement('p');
+            const dolla = document.createElement('p');
+            const prevData = document.createElement('p');
+
+            startText.classList.add("lineStartText");
+            path.classList.add('path');
+            dolla.classList.add('dolla');
+            newDiv.classList.add('currentTypingArea');
+            prevData.classList.add('prevData');
+
+            startText.innerHTML = "raghap@b34n:";
+            path.innerHTML = "~";
+            dolla.innerHTML = "$";
+            prevData.innerHTML = inputData;
+
+            newDiv.appendChild(startText);
+            newDiv.appendChild(path);
+            newDiv.appendChild(dolla);
+            newDiv.appendChild(prevData);
+
+            const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+            const e = document.getElementsByClassName("currentTypingArea");
+            const insertBeforeElement = e[e.length-1];
+            parentDiv.insertBefore(newDiv, insertBeforeElement);
         }
 
+        function createSpaceBetweenDiv(str1, str2, textClass) {
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("spaceBetweenText");
+
+            const a = document.createElement("p");
+            a.classList.add(textClass);
+            a.innerHTML = str1;
+
+            const b = document.createElement("p");
+            b.classList.add(textClass);
+            b.innerHTML = str2;
+
+            newDiv.appendChild(a);
+            newDiv.appendChild(b);
+            return newDiv;
+        }
+
+        function createPDiv(str, textClass) {
+            const a = document.createElement("p");
+            a.classList.add(textClass);
+            a.innerHTML = str;
+
+            return a;
+        }
+
+        function error() {
+            const e = document.createElement("p");
+            e.classList.add("normalText");
+            e.innerHTML = "Command not found. Run `help` to view available commands";
+            e.style.color = "red";
+
+            const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+            const k = document.getElementsByClassName("currentTypingArea");
+            const insertBeforeElement =k[k.length-1];
+            parentDiv.insertBefore(e, insertBeforeElement);
+        }
+
+        function help() {
+            const newDiv = document.createElement('div');
+            const intro = document.createElement('p');
+            intro.classList.add('normalText');
+            intro.innerHTML = "b34n's portfolio, version 0.0.1-release";
+            const intro2 = document.createElement('p');
+            intro2.classList.add('normalText');
+            intro2.innerHTML = "This is a list of all available commands. These commands are defined internally, and can be viewed by typing `help` in the shell:"
+        
+            const space = document.createElement('br');
+
+            const command1 = document.createElement('p');
+            command1.classList.add('normalText');
+            command1.innerHTML = "whoami: A brief introduction about myself."
+
+            const command2 = createPDiv("resume: See my resume.", "normalText");
+            const command3 = createPDiv("clear: clear the entire screen", "normalText");
+            const command4 = createPDiv("projects: View some of my projects and what they are about", "normalText");
+            
+            newDiv.appendChild(intro);
+            newDiv.appendChild(intro2);
+            newDiv.appendChild(space);
+            newDiv.appendChild(command1);
+            newDiv.appendChild(command2);
+            newDiv.appendChild(command3);
+            newDiv.appendChild(command4);
+            
+            const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+            const e = document.getElementsByClassName("currentTypingArea");
+            const insertBeforeElement = e[e.length-1];
+            parentDiv.insertBefore(newDiv, insertBeforeElement);
+        }
+
+        function projects() {
+            const project1 = document.createElement("a");
+            project1.href = "https://www.github.com/PandaBean18/muCLI";
+            project1.classList.add("normalText");
+            project1.innerHTML = "muCLI: "
+
+            const project1Desc = document.createElement('p');
+            project1Desc.classList.add("normalText");
+            project1Desc.innerHTML = "muCLI is an application that allows users to play music in their command shell and enjoy it with acoustic patterns of the song and the lyrics. This was built using yt-dlp and spotify api. The application was written in python and built over two days during my college's open source club's event called hacknight. This project received 1k+ upvotes and 65k+ views on reddit."
+
+
+            const project2 = document.createElement("a");
+            project2.href = "https://www.github.com/PandaBean18/password_manager";
+            project2.classList.add("normalText");
+            project2.innerHTML = "Password Manager: ";
+
+            const project2Desc = document.createElement('p');
+            project2Desc.classList.add('normalText');
+            project2Desc.innerHTML = "This was a password manager that I built using flutter and postgreSQL. The objective was simple, build a simple application to create and securly store passwords for various applications. This project taught me a lot about flutter, encryption and hashing.";
+            
+            const project3 = document.createElement("a");
+            project3.href = "https://www.github.com/PandaBean18/beanVC";
+            project3.classList.add("normalText");
+            project3.innerHTML = "beanVC: ";
+
+            const project3Desc = document.createElement('p');
+            project3Desc.classList.add('normalText');
+            project3Desc.innerHTML = "beanVC is the first somewhat useful project I built in C++. It is a limited version control management system, similar to git. I created my own algorithm to find changes made to a file between two commit levels, instead of storing the exact state of file for each commit, it stored only the changes made. This also allowed for features such as rolling back."
+
+            const project4 = document.createElement("a");
+            project4.classList.add("normalText");
+            project4.href = "";
+            project4.innerHTML = "portfolioLol: ";
+
+            const project4Desc = document.createElement('p');
+            project4Desc.classList.add('normalText');
+            project4Desc.innerHTML = "PortfolioLol is the website youre viewing right now! This was a project that I took up simply cause I was bored. PortfolioLol is meant to be a website to store information about me along with my projects. Everytime I take up a new project, I try to make it as unique as possible, hence why theres a command prompt on your screen. This project is built using pure HTML, CSS and Javascript, without any libraries or frameworks, I believe they are an overkill for single page applications.";
+            const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+            const e = document.getElementsByClassName("currentTypingArea");
+            const insertBeforeElement = e[e.length-1];
+            parentDiv.insertBefore(project1, insertBeforeElement);
+            parentDiv.insertBefore(project1Desc, insertBeforeElement);
+            parentDiv.insertBefore(document.createElement("br"), insertBeforeElement);
+            parentDiv.insertBefore(project2, insertBeforeElement);
+            parentDiv.insertBefore(project2Desc, insertBeforeElement);
+            parentDiv.insertBefore(document.createElement("br"), insertBeforeElement);
+            parentDiv.insertBefore(project3, insertBeforeElement);
+            parentDiv.insertBefore(project3Desc, insertBeforeElement);
+            parentDiv.insertBefore(document.createElement("br"), insertBeforeElement);
+            parentDiv.insertBefore(project4, insertBeforeElement);
+            parentDiv.insertBefore(project4Desc, insertBeforeElement);
+            parentDiv.insertBefore(document.createElement("br"), insertBeforeElement);
+        }
+
+        function resume() {
+            const sepLine = "------------------------------------------------------------------------------------------------------------------------------"
+            const newDiv = document.createElement("div");
+            const name = document.createElement("p");
+            name.classList.add("centeredText");
+            name.innerHTML = "RAGHAV BAHUKHANDI";
+
+            const contactInfo = document.createElement('p');
+            contactInfo.classList.add("centeredText");
+            contactInfo.innerHTML = "9315755933 | raghapb34n@gmail.com"
+
+            const break1 = document.createElement("br");
+
+            const sep1 = document.createElement("p");
+            sep1.classList.add("normalText");
+            sep1.innerHTML = sepLine;
+
+            const edu = document.createElement("p");
+            edu.classList.add("normalText");
+            edu.innerHTML = "EDUCATION";
+
+            const collegeEdu = document.createElement("div");
+            collegeEdu.classList.add("spaceBetweenText");
+
+            const collegeName = document.createElement('p');
+            collegeName.classList.add("normalText");
+            collegeName.innerHTML = "Jaypee Institute of Information Technology";
+
+            const place1 = document.createElement('p');
+            place1.classList.add("normalText");
+            place1.innerHTML = "Noida, India ";
+
+            collegeEdu.appendChild(collegeName);
+            collegeEdu.appendChild(place1);
+
+            const collegeDetails = document.createElement("div");
+            collegeDetails.classList.add("spaceBetweenText");
+
+            const degName = document.createElement('p');
+            degName.classList.add("normalTextSmall");
+            degName.innerHTML = "B. Tech Computer Science Engineering";
+
+            const duration1 = document.createElement('p');
+            duration1.classList.add("normalTextSmall");
+            duration1.innerHTML = "August 2023 - Present";
+            
+            collegeDetails.appendChild(degName);
+            collegeDetails.appendChild(duration1);
+
+            const break2 = document.createElement("br");
+
+            const hsEdu = document.createElement("div");
+            hsEdu.classList.add("spaceBetweenText");
+
+            const hsName = document.createElement('p');
+            hsName.classList.add("normalText");
+            hsName.innerHTML = "Air Force Golden Jubilee Institute";
+
+            const place2 = document.createElement('p');
+            place2.classList.add("normalText");
+            place2.innerHTML = "New Delhi, India ";
+
+            hsEdu.appendChild(hsName);
+            hsEdu.appendChild(place2);
+
+            const hsDetails = document.createElement("div");
+            hsDetails.classList.add("spaceBetweenText");
+
+            const hs = document.createElement('p');
+            hs.classList.add("normalTextSmall");
+            hs.innerHTML = "Senior Secondary School (PCM)";
+
+            const duration2 = document.createElement('p');
+            duration2.classList.add("normalTextSmall");
+            duration2.innerHTML = " April 2022 - April 2023";
+            
+            hsDetails.appendChild(hs);
+            hsDetails.appendChild(duration2);
+
+            const exp = document.createElement("p");
+            exp.classList.add("normalText");
+            exp.innerHTML = "Experience";
+
+            const sep2 = document.createElement("p");
+            sep2.classList.add("normalText");
+            sep2.innerHTML = sepLine;
+
+            const break3 = document.createElement("br");
+            const break4 = document.createElement("br");
+
+            const internExp = createSpaceBetweenDiv("Software Development Intern", "May 2024 - July 2024", "normalText");
+            const internExpCompany = createSpaceBetweenDiv("Auto Verdure", "New Delhi, India", "normalTextSmall");
+
+            const internDet1 = createPDiv("- Worked on the company's website using Next.js and react", "normalTextSmall");
+            const internDet2 = createPDiv("- Implemented server side caching using redis leading to 66% improvement in loading speeds", "normalTextSmall");
+            const internDet3 = createPDiv("- Executed authentication with Google OAuth for user authentication", "normalTextSmall");
+            const internDet4 = createPDiv("- Developed APIs to allow addition of products by storing relevant information with Firebase and image handlingwith Cloudinary", "normalTextSmall");
+            const internDet5 = createPDiv("- Integrated a payment gateway into the website through Razorpay APIs", "normalTextSmall");
+            const internDet6 = createPDiv("- Explored automated email sending through Resend", "normalTextSmall");
+
+            const break5 = document.createElement("br");
+            const break6 = document.createElement("br");
+
+            const projects = document.createElement("p");
+            projects.classList.add("normalText");
+            projects.innerHTML = "Projects";
+
+            const sep3 = document.createElement("p");
+            sep3.classList.add("normalText");
+            sep3.innerHTML = sepLine;
+
+            const project1 = createSpaceBetweenDiv("beanVC | C++", "November 2024", "normalText");
+            const project1det1 = createPDiv("- Developed a small scale git like version control management system in C++", "normalTextSmall");
+            const project1det2 = createPDiv("- Developed my own algorithm for find delta changes in a file from one commit version to another", "normalTextSmall");
+            const project1det3 = createPDiv("- Added features for staging, committing, logging and rolling back.", "normalTextSmall");
+
+            const break7 = document.createElement("br");
+
+            const project2 = createSpaceBetweenDiv("Compass | Flask", "October 2022", "normalText");
+            const project2det1 = createPDiv("- Developed an application to help users find routes through public transport on the basis of metrics such as cost effectiveness, eco-friendliness and time taken", "normalTextSmall");
+            const project2det2 = createPDiv("- Used searching algorithms for graphs to find shortest route between bus stations", "normalTextSmall");
+            const project2det3 = createPDiv("- Utilized web scraping to find metro fares and time taken", "normalTextSmall");
+
+            const break8 = document.createElement("br");
+
+            const project3 = createSpaceBetweenDiv("Password Manager | Flutter, PostgreSQL ", "June 2023 - July 2023", "normalText");
+            const project3det1 = createPDiv("- A password manager built using flutter and PostgreSQL to save passwords for various applications", "normalTextSmall");
+            const project3det2 = createPDiv("- Included an inbuilt password generator to create secure passwords with features to allow users to set password length, include special characters, numbers, and mix uppercase and lowercase alphabets", "normalTextSmall");
+            const project3det3 = createPDiv("- Explored concepts of encryption and hashing to store the passwords.", "normalTextSmall");
+
+            const break9 = document.createElement("br");
+
+            const project4 = createSpaceBetweenDiv("CapybaraAPI | Ruby on Rails, Python, PostgreSQL", "July 2022 - October 2022", "normalText");
+            const project4det1 = createPDiv("- Developed a RESTful API on in ruby on rails for a school application to upload name, class, quote about environment conservation and a photo to be retrieved later to showcase on school website", "normalTextSmall");
+            const project4det2 = createPDiv("- Successfully integrated imgur python API within the rails API to store the images on imgur", "normalTextSmall");
+
+            const break10 = document.createElement("br");
+            const break11 = document.createElement("br");
+
+            const techSkills = document.createElement("p");
+            techSkills.classList.add("normalText");
+            techSkills.innerHTML = "Technical Skills";
+
+            const sep4 = document.createElement('p');
+            sep4.classList.add('normalText');
+            sep4.innerHTML = sepLine;
+
+            const skill1 = createPDiv("Languages: Python, Ruby, C/C++, SQL (Postgres/mySQL), JavaScript, Dart", "normalText");
+            const skill2 = createPDiv("Frameworks: React, Node.js, Next.js, Flask, Ruby on Rails, Flutter", "normalText");
+            const skill3 = createPDiv("Developer Tools: Git, Google Cloud Platform, Postman", "normalText");
+
+            const break12 = document.createElement("br");
+
+            newDiv.appendChild(name);
+            newDiv.appendChild(contactInfo);
+            newDiv.appendChild(edu);
+            newDiv.appendChild(sep1);
+            newDiv.appendChild(collegeEdu);
+            newDiv.appendChild(collegeDetails);
+            newDiv.appendChild(break2);
+            newDiv.appendChild(hsEdu);
+            newDiv.appendChild(hsDetails);
+            newDiv.appendChild(break3);
+            newDiv.appendChild(break4);
+            newDiv.appendChild(exp);
+            newDiv.appendChild(sep2);
+            newDiv.appendChild(internExp);
+            newDiv.appendChild(internExpCompany);
+            newDiv.appendChild(internDet1);
+            newDiv.appendChild(internDet2);
+            newDiv.appendChild(internDet3);
+            newDiv.appendChild(internDet4);
+            newDiv.appendChild(internDet5);
+            newDiv.appendChild(internDet6);
+            newDiv.appendChild(break5);
+            newDiv.appendChild(break6);
+            newDiv.appendChild(projects);
+            newDiv.appendChild(sep3);
+            newDiv.appendChild(project1);
+            newDiv.appendChild(project1det1);
+            newDiv.appendChild(project1det2);
+            newDiv.appendChild(project1det3);
+            newDiv.appendChild(break7);
+            newDiv.appendChild(project2);
+            newDiv.appendChild(project2det1);
+            newDiv.appendChild(project2det2);
+            newDiv.appendChild(project2det3);
+            newDiv.appendChild(break8);
+            newDiv.appendChild(project3);
+            newDiv.appendChild(project3det1);
+            newDiv.appendChild(project3det2);
+            newDiv.appendChild(project3det3);
+            newDiv.appendChild(break9);
+            newDiv.appendChild(project4);
+            newDiv.appendChild(project4det1);
+            newDiv.appendChild(project4det2);
+            newDiv.appendChild(break10);
+            newDiv.appendChild(break11);
+            newDiv.appendChild(techSkills);
+            newDiv.appendChild(sep4);
+            newDiv.appendChild(skill1);
+            newDiv.appendChild(skill2);
+            newDiv.appendChild(skill3);
+            newDiv.appendChild(break12);
+
+            const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+            const e = document.getElementsByClassName("currentTypingArea");
+            const insertBeforeElement = e[e.length-1];
+            parentDiv.insertBefore(newDiv, insertBeforeElement);
+        }
+ 
+        function whoami() {
+            const data = document.createElement('p');
+            data.classList.add("normalText");
+            data.innerHTML = "Hello I am Raghav Bahukhandi. I am a fullstack developer currently pursuing my BTech in CSE with an expected graduation of August 2027. I have experience in languages such as C/C++, Python, Ruby and javascript, and have worked with frameworks such as flask, ruby on rails and Next.js. I have also worked a lot services such as google cloud platform, cloudinary and resend. Alot of what I learnt was during my internship last summer at Auto Verdure. Currently I am searching for summer intern role for summer 2025.";
+
+            const email = document.createElement("div")
+            email.style.display = "flex";
+            
+            const emailP = document.createElement("p");
+            emailP.classList.add("normalText");
+            emailP.innerHTML = "Email: ";
+            
+            const emailA = document.createElement('a');
+            emailA.classList.add("normalText");
+            emailA.innerHTML = "raghapb34n@gmail.com";
+            emailA.href = "mailto:raghapb34n@gmail.com";
+
+            email.appendChild(emailP);
+            email.appendChild(emailA);
+
+            const github = document.createElement("div")
+            github.style.display = "flex";
+            
+            const githubP = document.createElement("p");
+            githubP.classList.add("normalText");
+            githubP.innerHTML = "Github: ";
+            
+            const githubA = document.createElement('a');
+            githubA.classList.add("normalText");
+            githubA.innerHTML = "PandaBean18";
+            githubA.href = "https://www.github.com/PandaBean18";
+
+            github.appendChild(githubP);
+            github.appendChild(githubA);
+
+            const linkedin = document.createElement("div")
+            linkedin.style.display = "flex";
+            
+            const linkedinP = document.createElement("p");
+            linkedinP.classList.add("normalText");
+            linkedinP.innerHTML = "LinkedIn: ";
+            
+            const linkedinA = document.createElement('a');
+            linkedinA.classList.add("normalText");
+            linkedinA.innerHTML = "Raghav Bahukhandi";
+            linkedinA.href = "https://www.linkedin.com/in/raghav-bahukhandi";
+
+            linkedin.appendChild(linkedinP);
+            linkedin.appendChild(linkedinA);
+
+            const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+            const e = document.getElementsByClassName("currentTypingArea");
+            const insertBeforeElement = e[e.length-1];
+            parentDiv.insertBefore(data, insertBeforeElement);
+            parentDiv.insertBefore(document.createElement("br"), insertBeforeElement);
+            parentDiv.insertBefore(email, insertBeforeElement);
+            parentDiv.insertBefore(github, insertBeforeElement);
+            parentDiv.insertBefore(linkedin, insertBeforeElement);
+            parentDiv.insertBefore(document.createElement("br"), insertBeforeElement);
+        }
+
+        function evaluateInput(input, n) {
+            if (input === "clear") {
+                const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
+                const l = parentDiv.children.length;
+                if (l === 2) {
+                    parentDiv.children[0].remove();
+                    return;
+                }
+
+                for(let i = 0; i < (l-1); i++) {
+                    parentDiv.children[0].remove();
+                }
+
+                // idk how and why this works. it just does
+                if (n === 0 && l > 3) {
+                    evaluateInput("clear", 1);
+                }
+            } else if (input === "whoami") {
+                whoami();
+            } else if (input === "help") {
+                help();
+            } else if (input === "resume") {
+                resume();
+            } else if (input == "projects") {
+                projects();
+            } else {
+                error();
+            }
+        }
+
+        window.onload = detectAspectRatio;
     </script>
 </head>
 <body>
+    <div class="terminalWindow">
+        <div class="terminalWindowHeader">
+            <div class="terminalWindowTabsRow">
+                <div class="terminalWindowCurrentTab">
+                    <p>raghap@b34n:~</p>
+                    <img src="./icons/cross.svg" alt="close">
+                </div>
+                <img src="./icons/plus.svg" alt="newTab" class="newTabImage">
+            </div>
+            <div class="terminalWindowOperationsRow">
+                <img src="./icons/minimize.svg" alt="minimize" class="operationsImage" id="minimizeImage">
+                <img src="./icons/square.svg" alt="minimize" class="operationsImage" id="sqImage">
+                <img src="./icons/cross.svg" alt="minimize" class="operationsImage" height="12px" id="crossImage">
+            </div>
+        </div>
+        <div class="terminalWindowMainArea">
+            <div class="currentTypingArea">
+                <p class="lineStartText">raghap@b34n:</p>
+                <p class="path">~</p>
+                <p class="dolla">$</p>
+                <input type="text" spellcheck="false" class="currentInput" value="help">
+                <script>
+                    const currentInput = document.getElementsByClassName("currentInput")[0];
+                    currentInput.focus();
+                    currentInput.addEventListener('blur', () => {
+                        currentInput.focus();
+                    });
 
-    <div class="topRow">
-        <img src="./icons/github_pfp.jpg" alt="pfp" class="github_pfp" onclick="window.open('https:\/\/www.github.com/PandaBean18')">
-        <div class="selectedTopRowTab" id="all" onclick="changeTab('all')">
-            <p>All</p>
-        </div>
-        <div class="topRowTabs" id="exp" onclick="changeTab('exp')">
-            <p>Experience</p>
-        </div>
-        <div class="topRowTabs" id="projects" onclick="changeTab('projects')">
-            <p>Projects</p>
-        </div>
-    </div>
-    <div class="midRow">
-        <div class="midRowTabs">
-            <div class="midRowTabsIndv" onclick="redirectTo('about')">
-                <img src="./icons/about_me.jpg" alt="aboutMe">
-                <p>About Me</p>
-            </div>
-            <div class="midRowTabsIndv" onclick="redirectTo('projects')">
-                <img src="./icons/projects.jpg" alt="projects">
-                <p>Projects</p>
+                    currentInput.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter') {
+                            addDiv(currentInput.value);
+                            evaluateInput(currentInput.value, 0);
+                            currentInput.value = "";
+                        }
+                    });
+                </script>
             </div>
         </div>
-        <div class="midRowTabs">
-            <div class="midRowTabsIndv" onclick="redirectTo('experience')">
-                <img src="./icons/experience.jpg" alt="exp">
-                <p>Experience</p>
-            </div>
-            <div class="midRowTabsIndv" onclick="redirectTo('education')">
-                <img src="./icons/education.jpg" alt="education">
-                <p>Education</p>
-            </div>
-        </div>
-        <div class="midRowTabs">
-            <div class="midRowTabsIndv" onclick="redirectTo('techstack')">
-                <img src="./icons/techstack.jpg" alt="techstack">
-                <p>Tech Stack</p>
-            </div>
-            <div class="midRowTabsIndv" onclick="redirectTo('https:\/\/www.github.com/PandaBean18')">
-                <img src="./icons/github_pfp.jpg" alt="github">
-                <p>Github</p>
-            </div>
-        </div>
-        <div class="midRowTabs">
-            <div class="midRowTabsIndv" onclick="redirectTo('mailto:raghapb34n@gmail.com')">
-                <img src="./icons/contact.png" alt="contact">
-                <p>Contact Me</p>
-            </div>
-            <div class="midRowTabsIndv">
-                <img src="./icons/liked.png" alt="likedSongs">
-                <p>Liked Songs</p>
-            </div>
-        </div>
-        <div class="projectsShowcase">
-            <p>Uniquely Mine</p>
-            <div class="projectsShowcaseTabs">
-                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/mucli')">
-                    <p>muCLI</p>
-                    <img src="./icons/muCLI_showcase.jpg" alt="mucli">
-                </div>
-                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/beanvc')">
-                    <p>beanVC</p>
-                    <img src="./icons/bean_vc_showcase.png" alt="beanvc">
-                    
-                </div>
-                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/compass')">
-                    <p>Compass</p>
-                    <img src="./icons/compass_showcase.png" alt="compass">
-                </div>
-                <div class="projectsShowcaseTabIndv" onclick="redirectTo('projects/password_manager')">
-                    <p>Password Manager</p>
-                    <img src="./icons/pw_manager_showcase.jpg" alt="pw_manager">
-                </div>
-            </div>
-        </div>
-        <div class="designChoice">
-            <p class="designChoiceTitle">Why This Design?</p>
-            <p class="explanation">Music is a very integral part of my development cycle. If I am working, music will most likely be playing. The design of this portfolio is very heavily inspired by spotify simply because I think their app is very cool and important to me. Moreover, they are really amazing at designing.</p>
-        </div>
-        <br>
     </div>
 </body>
 </html>
