@@ -97,8 +97,9 @@
             command1.innerHTML = "whoami: A brief introduction about myself."
 
             const command2 = createPDiv("resume: See my resume.", "normalText");
-            const command3 = createPDiv("clear: clear the entire screen", "normalText");
-            const command4 = createPDiv("projects: View some of my projects and what they are about", "normalText");
+            const command3 = createPDiv("clear: clear the entire screen.", "normalText");
+            const command4 = createPDiv("projects: View some of my projects and what they are about.", "normalText");
+            const command5 = createPDiv("mobile: View the portfolio website I made that is optimized for phones.", "normalText");
             
             newDiv.appendChild(intro);
             newDiv.appendChild(intro2);
@@ -107,11 +108,16 @@
             newDiv.appendChild(command2);
             newDiv.appendChild(command3);
             newDiv.appendChild(command4);
+            newDiv.appendChild(command5);
             
             const parentDiv = document.getElementsByClassName("terminalWindowMainArea")[0];
             const e = document.getElementsByClassName("currentTypingArea");
             const insertBeforeElement = e[e.length-1];
             parentDiv.insertBefore(newDiv, insertBeforeElement);
+        }
+
+        function mobile() {
+            window.href.location = "mobile";
         }
 
         function projects() {
@@ -463,8 +469,10 @@
                 help();
             } else if (input === "resume") {
                 resume();
-            } else if (input == "projects") {
+            } else if (input === "projects") {
                 projects();
+            } else if (input === "mobile") {
+                mobile();
             } else {
                 error();
             }
